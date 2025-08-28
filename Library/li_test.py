@@ -52,7 +52,7 @@ class Member:
         self._borrowed_books = [] # 대출목록
 
     def __str__(self):
-        return f"회원: {self._name} (ID: {self._member_id})'"
+        return f"회원: {self._name} (ID: {self._member_id})"
     
     @property
     def name(self):
@@ -83,11 +83,46 @@ class Member:
             return False #, f" {self.name}님, 대출 목록에 '{book.title}'이(가) 없습니다." 
 
 
+from abc import ABC, abstractmethod
+
+class SearchStrategy(ABC):
+    """검색 전략의 기본 인터페이스"""
+    @abstractmethod
+    def search(self, books, query):
+        pass
+
+
+class TitleSearchStrategy(SearchStrategy):
+    """제목 검색 전략"""
+    def search(self, books, query):
+        return [book for book in books.values() 
+                if query.lower() in book.title.lower()]
+
+class AuthorSearchStrategy(SearchStrategy):
+    """저자 검색 전략"""
+    def search(self, books, query):
+        return [book for book in books.values() 
+                if query.lower() in book.author.lower()]
+
+class ISBNSearchStrategy(SearchStrategy):
+    """ISBN 검색 전략"""
+    def search(self, books, query):
+        return [books[query]] if query in books else []
+
 class Library:
     """도서관 시스템의 주요 기능을 관리하는 클래스"""
-    def __init__(self):
+    def __init__(self, search_strategies=None):
         self._books = {}    # isbn을 키로 하는 도서 딕셔너리
         self._members = {}  # 회원 ID를 키로 하는 회원 딕셔너리
+        # 🎯 DI 패턴: 외부에서 전략 주입 가능, 기본값으로 호환성 유지
+        self._search_strategies = search_strategies or self._create_default_strategies()
+    
+    def _create_default_strategies(self):
+        """기본 검색 전략들 생성"""
+        return {
+            "title": TitleSearchStrategy(),
+            "author": AuthorSearchStrategy(),
+            "isbn": ISBNSearchStrategy()}
 
     # 도서 관리
     def add_book(self, book):
@@ -106,18 +141,31 @@ class Library:
         return False
 
     # 도서 검색 (개방-폐쇄 원칙 적용)
+    # def search_books(self, query, search_type="title"):
+    #     results = []
+    #     if search_type == "title":
+    #         results = [book for book in self._books.values() if query.lower() in book.title.lower()]
+    #     elif search_type == "author":
+    #         results = [book for book in self._books.values() if query.lower() in book.author.lower()]
+    #     elif search_type == "isbn":
+    #         if query in self._books:
+    #             results.append(self._books[query])
+    #     else:
+    #         print("오류: 유효하지 않은 검색 유형입니다. (title, author, isbn 중 선택)")
+    #     return results
+
+
+
     def search_books(self, query, search_type="title"):
-        results = []
-        if search_type == "title":
-            results = [book for book in self._books.values() if query.lower() in book.title.lower()]
-        elif search_type == "author":
-            results = [book for book in self._books.values() if query.lower() in book.author.lower()]
-        elif search_type == "isbn":
-            if query in self._books:
-                results.append(self._books[query])
+        if search_type in self._search_strategies:
+            strategy = self._search_strategies[search_type]
+            return strategy.search(self._books, query)
         else:
-            print("오류: 유효하지 않은 검색 유형입니다. (title, author, isbn 중 선택)")
-        return results
+            available_types = ", ".join(self._search_strategies.keys())
+            print(f"오류: 유효하지 않은 검색 유형입니다. ({available_types} 중 선택)")
+            return []
+
+
 
     # 회원 관리
     def register_member(self, member):
@@ -242,69 +290,69 @@ if __name__ == "__main__":
 ## -- 사용예시 코드 --##
 ##  아래코드부터 가장 하단에 있는 코드 전까지 주석을 풀고 예시에 맞게 실행하면 됩니다.
 
-# if __name__ == "__main__":
-#     # Library 클래스의 인스턴스(객체)를 생성합니다.
-#     my_library = Library()
+if __name__ == "__main__":
+     # Library 클래스의 인스턴스(객체)를 생성합니다.
+     my_library = Library()
 
-#     # --- 도서 데이터 준비 ---
-#     # 실제 도서 정보를 담을 Book 객체들을 생성하세요.
-#     # 예: book1 = Book("제목1", "저자1", "ISBN1", 2023)
-#     book1 = ...
-#     book2 = ...
-#     book3 = ...
+     # --- 도서 데이터 준비 ---
+     # 실제 도서 정보를 담을 Book 객체들을 생성하세요.
+     # 예: book1 = Book("제목1", "저자1", "ISBN1", 2023)
+     book1 = ...
+     book2 = ...
+     book3 = ...
     
-#     # 생성된 도서 객체들을 도서관에 추가합니다.
-#     print("--- 도서 추가 ---")
-#     my_library.add_book(book1)
-#     my_library.add_book(book2)
-#     my_library.add_book(book3)
-#     print("\n" + "="*40 + "\n")
+     # 생성된 도서 객체들을 도서관에 추가합니다.
+     print("--- 도서 추가 ---")
+     my_library.add_book(book1)
+     my_library.add_book(book2)
+     my_library.add_book(book3)
+     print("\n" + "="*40 + "\n")
 
-#     # --- 회원 데이터 준비 ---
-#     # 실제 회원 정보를 담을 Member 객체들을 생성하세요.
-#     # 예: member1 = Member("이름1", "ID1")
-#     member1 = ...
-#     member2 = ...
+     # --- 회원 데이터 준비 ---
+     # 실제 회원 정보를 담을 Member 객체들을 생성하세요.
+     # 예: member1 = Member("이름1", "ID1")
+     member1 = ...
+     member2 = ...
     
-#     # 생성된 회원 객체들을 도서관에 등록합니다.
-#     print("--- 회원 등록 ---")
-#     my_library.register_member(member1)
-#     my_library.register_member(member2)
-#     print("\n" + "="*40 + "\n")
+     # 생성된 회원 객체들을 도서관에 등록합니다.
+     print("--- 회원 등록 ---")
+     my_library.register_member(member1)
+     my_library.register_member(member2)
+     print("\n" + "="*40 + "\n")
 
-#     # --- 기능 테스트 ---
-#     print("--- 도서 검색 기능 테스트 ---")
-#     # 원하는 검색 조건으로 도서를 검색하고 결과를 출력합니다.
-#     # 예: my_library.search_books("검색어", "title")
-#     print("--- 제목으로 검색 ---")
-#     results_title = my_library.search_books("...", "title")
-#     for result in results_title:
-#         print(result)
+     # --- 기능 테스트 ---
+     print("--- 도서 검색 기능 테스트 ---")
+     # 원하는 검색 조건으로 도서를 검색하고 결과를 출력합니다.
+     # 예: my_library.search_books("검색어", "title")
+     print("--- 제목으로 검색 ---")
+     results_title = my_library.search_books("...", "title")
+     for result in results_title:
+         print(result)
 
-#     print("\n--- 저자명으로 검색 ---")
-#     results_author = my_library.search_books("...", "author")
-#     for result in results_author:
-#         print(result)
-#     print("\n" + "="*40 + "\n")
+     print("\n--- 저자명으로 검색 ---")
+     results_author = my_library.search_books("...", "author")
+     for result in results_author:
+         print(result)
+     print("\n" + "="*40 + "\n")
 
-#     # --- 대출 및 반납 테스트 ---
-#     print("--- 도서 대출 시도 ---")
-#     # 대출을 원하는 회원 ID와 도서 ISBN을 넣어 대출을 시도합니다.
-#     # 예: my_library.borrow_book("ID1", "ISBN1")
-#     my_library.borrow_book("...", "...")
-#     my_library.borrow_book("...", "...")
-#     print("\n" + "="*40 + "\n")
+     # --- 대출 및 반납 테스트 ---
+     print("--- 도서 대출 시도 ---")
+     # 대출을 원하는 회원 ID와 도서 ISBN을 넣어 대출을 시도합니다.
+     # 예: my_library.borrow_book("ID1", "ISBN1")
+     my_library.borrow_book("...", "...")
+     my_library.borrow_book("...", "...")
+     print("\n" + "="*40 + "\n")
     
-#     print("--- 도서 반납 시도 ---")
-#     # 반납을 원하는 회원 ID와 도서 ISBN을 넣어 반납을 시도합니다.
-#     my_library.return_book("...", "...")
-#     print("\n" + "="*40 + "\n")
+     print("--- 도서 반납 시도 ---")
+     # 반납을 원하는 회원 ID와 도서 ISBN을 넣어 반납을 시도합니다.
+     my_library.return_book("...", "...")
+     print("\n" + "="*40 + "\n")
 
-#     # --- 도서 삭제 테스트 ---
-#     print("--- 도서 삭제 시도 ---")
-#     # 삭제를 원하는 도서의 ISBN을 넣어 도서를 삭제합니다.
-#     # 예: my_library.remove_book("ISBN1")
-#     my_library.remove_book("...")
-#     my_library.remove_book("...") # 존재하지 않는 도서 삭제 시도
+     # --- 도서 삭제 테스트 ---
+     print("--- 도서 삭제 시도 ---")
+     # 삭제를 원하는 도서의 ISBN을 넣어 도서를 삭제합니다.
+     # 예: my_library.remove_book("ISBN1")
+     my_library.remove_book("...")
+     my_library.remove_book("...") # 존재하지 않는 도서 삭제 시도
 
 ## 

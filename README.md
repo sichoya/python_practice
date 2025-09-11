@@ -22,8 +22,7 @@
 ├── setup_conda_envs.sh
 │
 └── README.md
-
----
+```
 
 ## ⚙️ 환경 설정 방법
 

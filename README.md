@@ -13,7 +13,7 @@
 │   ├── Fast_API/             # Fast_API    환경   (Python 3.12)
 │   └── OCR/             # OCR  환경 (Python 3.9)
 │      
-├── 기초/            
+├── basic/            
 │   ├── 0826_prac/            # 기초  환경   (Python 3.12)
 │   ├── 0827_prac/            # 심화  환경   (Python 3.12)
 │   ├── Library/          # 도서관리서비스 환경   (Python 3.12)

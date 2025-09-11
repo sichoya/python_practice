@@ -8,7 +8,7 @@
 ~/Python/
 ├── project/     # python_main 환경 (Python 3.12)
 │   ├── Computer_Vision/               # 컴퓨터 비전 환경   (Python 3.12)
-│   ├── Image_segmentation/            # 이미지 처리 환경   (Python 3.12)
+│   ├── image_pred/            # 이미지 처리( MNIST )   환경   (Python 3.12)
 │   ├── ChatBot/             # 챗봇 프로젝트  환경   (Python 3.12)
 │   ├── Fast_API/             # Fast_API    환경   (Python 3.12)
 │   └── OCR/             # OCR  환경 (Python 3.9)
@@ -23,6 +23,8 @@
 │
 └── README.md
 ```
+
+image_pred
 ## 가상환경
 
 ocr_projects           /opt/miniconda3/envs/ocr_projects    (Python 3.9)

@@ -23,6 +23,10 @@
 │
 └── README.md
 ```
+## 가상환경
+
+ocr_projects           /opt/miniconda3/envs/ocr_projects    (Python 3.9)
+python_main            /opt/miniconda3/envs/python_main     (Python 3.12)
 
 ## ⚙️ 환경 설정 방법
 

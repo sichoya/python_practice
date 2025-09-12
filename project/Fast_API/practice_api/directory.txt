@@ -1,0 +1,7 @@
+Fast_API/
+└── practice_api/
+    ├── __pycache__/  (자동 생성)
+    ├── api.py        (API 라우트 연습)
+    ├── apirouter.py  (API 라우터 연습)
+    ├── main.py       (메인 실행 파일)
+    └── todo.py       (TODO 앱 연습)

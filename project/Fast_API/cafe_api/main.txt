@@ -1,0 +1,9 @@
+Fast_API/
+└── cafe_api/
+    ├── __pycache__/  (자동 생성)
+    ├── database.py   (메뉴 데이터베이스)
+    ├── main.py       (API 엔드포인트)
+    └── models.py     (데이터 모델)
+
+
+    

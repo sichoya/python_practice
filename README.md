@@ -21,16 +21,21 @@
 │   
 ├── setup_conda_envs.sh
 │
+├── txt
+│   ├── requirements39.txt     (Python 3.9)
+│   └── requirements312.txt     (Python 3.12)
+│ 
 └── README.md
 ```
 
-image_pred
+
 ## 가상환경
 
 ocr_projects           /opt/miniconda3/envs/ocr_projects    (Python 3.9)
+
 python_main            /opt/miniconda3/envs/python_main     (Python 3.12)
 
-## ⚙️ 환경 설정 방법
+## ⚙️ 초기 환경 설정 방법
 
 각 프로젝트에 필요한 Conda 가상 환경은 `setup_conda_envs.sh` 스크립트를 실행하여 자동으로 설정할 수 있습니다. 이 스크립트는 프로젝트별로 다른 파이썬 버전을 관리합니다.
 

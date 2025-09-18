@@ -71,6 +71,70 @@
 └── README.md                    # 프로젝트 문서
 ```
 
+├── basic
+│   ├── 0826_prac
+│   │   ├── binary_data.bin
+│   │   ├── copy.jpg
+│   │   ├── examplenew.txt
+│   │   ├── levelup.ipynb
+│   │   ├── new_data.csv
+│   │   ├── new.jpg
+│   │   └── test.py
+│   ├── 0827_prac
+│   │   └── 0827.ipynb
+│   ├── File_p
+│   │   ├── ex_file.csv
+│   │   ├── File_sys.ipynb
+│   │   └── 파일처리기                  .rtf
+│   └── Library
+│       ├── li_test.py
+│       ├── Library_test.ipynb
+│       ├── Library.py
+│       ├── Library예제_설명.txt
+│       └── 도서관 관리 시스템.rtf
+├── project
+│   ├── ChatBot
+│   ├── Computer_Vision
+│   │   └── Vision_prac.ipynb
+│   ├── Fast_API
+│   │   ├── cafe_api
+│   │   │   ├── __pycache__
+│   │   │   │   ├── cafe_api.cpython-313.pyc
+│   │   │   │   ├── database.cpython-313.pyc
+│   │   │   │   ├── main.cpython-313.pyc
+│   │   │   │   └── models.cpython-313.pyc
+│   │   │   ├── cafe_api.py
+│   │   │   ├── database.py
+│   │   │   ├── main.py
+│   │   │   ├── main.txt
+│   │   │   ├── models.py
+│   │   │   └── process.txt
+│   │   └── practice_api
+│   │       ├── __pycache__
+│   │       │   ├── api.cpython-313.pyc
+│   │       │   └── main.cpython-313.pyc
+│   │       ├── api.py
+│   │       ├── apirouter.py
+│   │       ├── directory.txt
+│   │       ├── main copy.py
+│   │       ├── test_main.py
+│   │       └── todo.py
+│   ├── Image_pred
+│   │   ├── confusion_matrix_result.png
+│   │   ├── hyperparameter.txt
+│   │   └── main.py
+│   └── OCR
+│       ├── high_quality_image.png
+│       ├── low_quality_image.png
+│       ├── medium_quality_image.png
+│       ├── practice_OCR.ipynb
+│       └── sample_image.png
+├── README.md
+├── setup_conda_envs.sh
+└── txt
+    ├── requirements312.txt
+    └── requirements39.txt
+    
 ## ⚙️ 개발 환경
 
 | 구분 | 상세 정보 |

@@ -19,121 +19,70 @@
 
 ```plaintext
 ~/Python/
+├── basic/                       # 기초 학습 (Python 3.12)
+│   ├── 0826_prac/               # 기초 환경 ✅ [완료] (Python 3.12)
+│   │   ├── binary_data.bin      # 바이너리 데이터 처리
+│   │   ├── copy.jpg             # 이미지 처리 예제
+│   │   ├── examplenew.txt       # 텍스트 처리 예제
+│   │   ├── levelup.ipynb        # 기초 실습
+│   │   ├── new_data.csv         # CSV 데이터 처리
+│   │   ├── new.jpg              # 이미지 예제
+│   │   └── test.py              # 기초 테스트 스크립트
+│   ├── 0827_prac/               # 심화 환경 ✅ [완료] (Python 3.12)
+│   │   └── 0827.ipynb           # 심화 실습
+│   ├── File_p/                  # 파일처리기 🔄 [진행중] (Python 3.12)
+│   │   ├── ex_file.csv          # 파일 처리 예제
+│   │   ├── File_sys.ipynb       # 파일 시스템 구현
+│   │   └── 파일처리기.rtf        # 파일처리기 설명 문서
+│   └── Library/                 # 도서관리서비스 ✅ [완료] (Python 3.12)
+│       ├── li_test.py           # 시스템 테스트
+│       ├── Library.py           # 도서관 시스템 메인 모듈
+│       ├── Library_test.ipynb   # 테스트
+│       ├── Library예제_설명.txt  # 시스템 설명서
+│       └── 도서관 관리 시스템.rtf # 도서관 관리 설명 문서
 ├── project/                     # 메인 프로젝트 (Python 3.12)
+│   ├── ChatBot/                 # 챗봇 프로젝트 🔄 [진행중] (Python 3.12)
 │   ├── Computer_Vision/         # 컴퓨터 비전 ✅ [완료] (Python 3.12)
 │   │   └── Vision_prac.ipynb    # 컴퓨터 비전 실습
-│   ├── image_pred/              # 이미지 분류 ✅ [완료] (Python 3.12)
-│   │   ├── confusion_matrix_result.png  # 성능 평가 결과
-│   │   ├── hyperparameter.txt           # 하이퍼파라미터 설정
-│   │   └── main.py                      # 메인 실행 파일
-│   ├── ChatBot/                 # 챗봇 프로젝트 🔄 [진행중] (Python 3.12)
 │   ├── Fast_API/                # API 서버 ✅ [완료] (Python 3.12)
 │   │   ├── cafe_api/            # 카페 주문 시스템
 │   │   │   ├── cafe_api.py      # 메인 API 애플리케이션
 │   │   │   ├── database.py      # 데이터베이스 연결 및 설정
 │   │   │   ├── main.py          # 서버 실행 파일
+│   │   │   ├── main.txt         # 서버 실행 참고 문서
 │   │   │   ├── models.py        # 데이터 모델 정의
-│   │   │   └── process.txt      # 프로세스 문서
+│   │   │   ├── process.txt      # 프로세스 문서
+│   │   │   └── **pycache**/      # 캐시 파일
+│   │   │       ├── cafe_api.cpython-313.pyc
+│   │   │       ├── database.cpython-313.pyc
+│   │   │       ├── main.cpython-313.pyc
+│   │   │       └── models.cpython-313.pyc
 │   │   └── practice_api/        # API 실습
 │   │       ├── api.py           # API 엔드포인트
 │   │       ├── apirouter.py     # 라우터 설정
+│   │       ├── directory.txt    # 디렉토리 설명
+│   │       ├── main copy.py     # 메인 파일 복사본
 │   │       ├── test_main.py     # 테스트 파일
-│   │       └── todo.py          # To-Do 기능 구현
+│   │       ├── todo.py          # To-Do 기능 구현
+│   │       └── **pycache**/      # 캐시 파일
+│   │           ├── api.cpython-313.pyc
+│   │           └── main.cpython-313.pyc
+│   ├── Image_pred/              # 이미지 분류 ✅ [완료] (Python 3.12)
+│   │   ├── confusion_matrix_result.png  # 성능 평가 결과
+│   │   ├── hyperparameter.txt           # 하이퍼파라미터 설정
+│   │   └── main.py                      # 메인 실행 파일
 │   └── OCR/                     # 문자인식 ✅ [완료] (Python 3.9)
 │       ├── high_quality_image.png       # 고품질 테스트 이미지
 │       ├── low_quality_image.png        # 저품질 테스트 이미지
 │       ├── medium_quality_image.png     # 중품질 테스트 이미지
 │       ├── practice_OCR.ipynb           # OCR 실습
 │       └── sample_image.png             # 샘플 이미지
-│
-├── basic/                       # 기초 학습 (Python 3.12)
-│   ├── 0826_prac/               # 기초 환경 ✅ [완료] (Python 3.12)
-│   │   ├── binary_data.bin      # 바이너리 데이터 처리
-│   │   ├── new_data.csv         # CSV 데이터 처리
-│   │   ├── levelup.ipynb        # 기초 실습
-│   │   └── test.py              # 기초 테스트 스크립트
-│   ├── 0827_prac/               # 심화 환경 ✅ [완료] (Python 3.12)
-│   │   └── 0827.ipynb           # 심화 실습
-│   ├── Library/                 # 도서관리서비스 ✅ [완료] (Python 3.12)
-│   │   ├── Library.py           # 도서관 시스템 메인 모듈
-│   │   ├── li_test.py           # 시스템 테스트
-│   │   ├── Library_test.ipynb   # 테스트
-│   │   └── Library예제_설명.txt  # 시스템 설명서
-│   └── File_p/                  # 파일처리기 🔄 [진행중] (Python 3.12)
-│       ├── ex_file.csv          # 파일 처리 예제
-│       └── File_sys.ipynb       # 파일 시스템 구현
-│
-├── txt/                         # 환경 설정 파일
-│   ├── requirements39.txt       # Python 3.9 의존성
-│   └── requirements312.txt      # Python 3.12 의존성
-│
+├── README.md                    # 프로젝트 문서
 ├── setup_conda_envs.sh          # Conda 환경 설정 스크립트
-└── README.md                    # 프로젝트 문서
+└── txt/                         # 환경 설정 파일
+    ├── requirements312.txt      # Python 3.12 의존성
+    └── requirements39.txt       # Python 3.9 의존성
 ```
-
-├── basic
-│   ├── 0826_prac
-│   │   ├── binary_data.bin
-│   │   ├── copy.jpg
-│   │   ├── examplenew.txt
-│   │   ├── levelup.ipynb
-│   │   ├── new_data.csv
-│   │   ├── new.jpg
-│   │   └── test.py
-│   ├── 0827_prac
-│   │   └── 0827.ipynb
-│   ├── File_p
-│   │   ├── ex_file.csv
-│   │   ├── File_sys.ipynb
-│   │   └── 파일처리기                  .rtf
-│   └── Library
-│       ├── li_test.py
-│       ├── Library_test.ipynb
-│       ├── Library.py
-│       ├── Library예제_설명.txt
-│       └── 도서관 관리 시스템.rtf
-├── project
-│   ├── ChatBot
-│   ├── Computer_Vision
-│   │   └── Vision_prac.ipynb
-│   ├── Fast_API
-│   │   ├── cafe_api
-│   │   │   ├── __pycache__
-│   │   │   │   ├── cafe_api.cpython-313.pyc
-│   │   │   │   ├── database.cpython-313.pyc
-│   │   │   │   ├── main.cpython-313.pyc
-│   │   │   │   └── models.cpython-313.pyc
-│   │   │   ├── cafe_api.py
-│   │   │   ├── database.py
-│   │   │   ├── main.py
-│   │   │   ├── main.txt
-│   │   │   ├── models.py
-│   │   │   └── process.txt
-│   │   └── practice_api
-│   │       ├── __pycache__
-│   │       │   ├── api.cpython-313.pyc
-│   │       │   └── main.cpython-313.pyc
-│   │       ├── api.py
-│   │       ├── apirouter.py
-│   │       ├── directory.txt
-│   │       ├── main copy.py
-│   │       ├── test_main.py
-│   │       └── todo.py
-│   ├── Image_pred
-│   │   ├── confusion_matrix_result.png
-│   │   ├── hyperparameter.txt
-│   │   └── main.py
-│   └── OCR
-│       ├── high_quality_image.png
-│       ├── low_quality_image.png
-│       ├── medium_quality_image.png
-│       ├── practice_OCR.ipynb
-│       └── sample_image.png
-├── README.md
-├── setup_conda_envs.sh
-└── txt
-    ├── requirements312.txt
-    └── requirements39.txt
     
 ## ⚙️ 개발 환경
 
